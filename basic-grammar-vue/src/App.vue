@@ -4,6 +4,14 @@ import vTextTest from './components/vTextTest.vue';
 import vPreTest from './components/vPreTest.vue';
 import vBindTest from './components/vBindTest.vue';
 import vIfTest from './components/vIfTest.vue';
+import vShowTest from './components/vShowTest.vue';
+import vForArrayTest from './components/vForArrayTest.vue';
+import vForObjectTest from './components/vForObjectTest.vue';
+import eventObjectCheck from './components/eventObjectCheck.vue';
+import modifierTest from './components/modifierTest.vue';
+import reactivitySystem from './components/reactivitySystem.vue';
+import vOnceTest from './components/vOnceTest.vue';
+import vMemoTest from './components/vMemoTest.vue';
 
 export default {
 components: {
@@ -11,7 +19,16 @@ components: {
   vTextTest,
   vPreTest,
   vBindTest,
-  vIfTest
+  vIfTest,
+  vShowTest,
+  vForArrayTest,
+  vForObjectTest,
+  eventObjectCheck,
+  modifierTest,
+  reactivitySystem,
+  vOnceTest,
+  vMemoTest,
+
 },
   data() {
     return {
@@ -32,5 +49,14 @@ components: {
   <vPreTest/>
   <vBindTest/>
   <vIfTest/>
+  <vShowTest/>
+  <vForArrayTest/>
+  <vForObjectTest/>
+  <eventObjectCheck/>
+  <modifierTest/>
+  <reactivitySystem/>
+  <vOnceTest/>
+  <vMemoTest/>
+
 </template>
 <style></style>
