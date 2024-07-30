@@ -12,6 +12,12 @@ import modifierTest from './components/modifierTest.vue';
 import reactivitySystem from './components/reactivitySystem.vue';
 import vOnceTest from './components/vOnceTest.vue';
 import vMemoTest from './components/vMemoTest.vue';
+import VModelNormalTest from './components/vModelNormalTest.vue';
+import VModelTextareaTest from './components/vModelTextareaTest.vue';
+import vModelCheckboxTest from './components/vModelCheckboxTest.vue';
+import VModleRadioTest from './components/vModleRadioTest.vue';
+import VModelSelectTest from './components/vModelSelectTest.vue'
+import VModelIMETest from './components/vModelIMETest.vue'
 
 export default {
 components: {
@@ -28,6 +34,12 @@ components: {
   reactivitySystem,
   vOnceTest,
   vMemoTest,
+  VModelNormalTest,
+  VModelTextareaTest,
+  vModelCheckboxTest,
+  VModleRadioTest,
+  VModelSelectTest,
+  VModelIMETest,
 
 },
   data() {
@@ -39,8 +51,6 @@ components: {
 };
 </script>
 <template>
-  <p>내 이름은 {{ name }}</p>
-  <p>내 나이는 {{ age }}</p>
   <p>{{ name.toUpperCase() }}</p>
   <p> {{ age }}</p>
 
@@ -57,6 +67,12 @@ components: {
   <reactivitySystem/>
   <vOnceTest/>
   <vMemoTest/>
+  <VModelNormalTest/>
+  <VModelTextarea/>
+  <vModelCheckboxTest/>
+  <VModleRadioTest/>
+  <VModelSelectTest/>
+  <VModelIMETest/>
 
 </template>
 <style></style>
