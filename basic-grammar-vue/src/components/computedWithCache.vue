@@ -8,6 +8,7 @@ export default {
 
   computed: {
     evenSum() {
+      console.log('cached!')
       return this.numArr
         .filter((v) => v%2 === 0)
         .reduce((acc, cur) => acc + cur, 0);
@@ -16,5 +17,6 @@ export default {
 };
 </script>
 <template>
+  <h1>{{ evenSum }}</h1>
   <h1>{{ evenSum }}</h1>
 </template>

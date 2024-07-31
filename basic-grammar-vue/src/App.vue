@@ -17,7 +17,11 @@ import VModelTextareaTest from './components/vModelTextareaTest.vue';
 import vModelCheckboxTest from './components/vModelCheckboxTest.vue';
 import VModleRadioTest from './components/vModleRadioTest.vue';
 import VModelSelectTest from './components/vModelSelectTest.vue'
-import VModelIMETest from './components/vModelIMETest.vue'
+import VModelIMETest from './components/vModelIMETest.vue';
+import computedWithCache from './components/computedWithCache.vue';
+import WatchNormalTest from './components/watchNormalTest.vue';
+import WatchNoneDeepTest from './components/watchNoneDeepTest.vue';
+import WatchDeepTest from './components/watchDeepTest.vue';
 
 export default {
 components: {
@@ -40,6 +44,10 @@ components: {
   VModleRadioTest,
   VModelSelectTest,
   VModelIMETest,
+  computedWithCache,
+  WatchNormalTest,
+  WatchNoneDeepTest,
+  WatchDeepTest,
 
 },
   data() {
@@ -73,6 +81,10 @@ components: {
   <VModleRadioTest/>
   <VModelSelectTest/>
   <VModelIMETest/>
+  <computedWithCache/>
+  <WatchNormalTest/>
+  <WatchNoneDeepTest/>
+  <WatchDeepTest/>
 
 </template>
 <style></style>
