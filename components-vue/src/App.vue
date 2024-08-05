@@ -1,45 +1,54 @@
 <script>
 import SecondChild from './components/SecondChild.vue';
 import LifeCycleHookTest from './components/LifeCycleHookTest.vue';
+import PropsTest from'./components/PropsTest.vue';
 
 export default {
   components: {
     SecondChild,
     LifeCycleHookTest,
+    PropsTest,
 
   },  
   data() {
     return {
       visible: true,
+      name : 'sadasd',
+      age : 33,
     };
   },
-  beforeCreate() {
-    console.log("beforeCreate");
-  },
-  created() {
-    setTimeout(() => {
-      this.visible = false;
-    }, 3000);
-    console.log("created");
-  },
-  beforeMount() {
-    console.log("beforeMount");
-  },
-  mounted() {
-    console.log("mounted");
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate");
-  },
-  updated() {
-    console.log("updated");
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount");
-  },
-  unmounted() {
-    console.log("unmounted");
-  },
+  methods : {
+    ageChange() {
+      this.age = 55;
+    }
+  }
+  // beforeCreate() {
+  //   console.log("beforeCreate");
+  // },
+  // created() {
+  //   setTimeout(() => {
+  //     this.visible = false;
+  //   }, 3000);
+  //   console.log("created");
+  // },
+  // beforeMount() {
+  //   console.log("beforeMount");
+  // },
+  // mounted() {
+  //   console.log("mounted");
+  // },
+  // beforeUpdate() {
+  //   console.log("beforeUpdate");
+  // },
+  // updated() {
+  //   console.log("updated");
+  // },
+  // beforeUnmount() {
+  //   console.log("beforeUnmount");
+  // },
+  // unmounted() {
+  //   console.log("unmounted");
+  // },
 }
 
 </script>
@@ -47,6 +56,10 @@ export default {
   <FirstChild/>
   <SecondChild/>
   <LifeCycleHookTest v-if="visible"/>
+  <PropsTest name="aag" age="3" isHuman="true"/> <!--기본 전달-->
+  <PropsTest :name="'aag'" :age="3" :isHuman="true"/> <!--v-bind 전달-->
+  <p>name: {{ name }} age {{ age }}</p>
+  <button @click="ageChange">ifClick data chage</button>
 </template>
 <style scoped>
 h1,

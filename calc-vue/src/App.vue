@@ -15,9 +15,12 @@ export default {
       },
     };
   },
+  mounted() {
+    // 페이지가 로드되자마자 keydown 이벤트 리스너를 document에 추가
+    document.addEventListener('keydown', this.operation);
+  },
   methods: {    
     calculate(clickValue) {
-      console.log(clickValue)
       // 저장된 숫자가 없는데 연산 기호를 클릭한 경우
       if (!this.cur && !this.prev) {
         alert('숫자를 먼저 입력하세요.');
@@ -68,8 +71,14 @@ export default {
     },
     operation(e) {
       // 클릭한 버튼 값 가져오기
-      const clickValue = e.currentTarget.value;
+      const clickValue = e.type === 'keydown'? e.key : e.currentTarget.value;
       console.log(clickValue)
+      if ( !['1','2','3','4','5','6','7','8','9','0','C','+', '-', '*', '/', '=']
+          .includes(clickValue)
+        ){
+          console.log('not good input')
+          return
+        }
       if (['+', '-', '*', '/', '='].includes(clickValue)){
         this.calculate(clickValue)
       }else if(clickValue === 'C'){
@@ -101,7 +110,7 @@ export default {
       <input type="button" class="operator" value="-" @click="operation" />
       <input type="button" class="dot" value="." @click="operation" />
       <input type="button" value="0" @click="operation" />
-      <input type="button" name="operator result" value="=" @click="operation"/>
+      <input type="button" name="operator result" value="=" @click="operation" />
     </form>
   </div>
 </template>
