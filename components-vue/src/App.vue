@@ -2,12 +2,14 @@
 import SecondChild from './components/SecondChild.vue';
 import LifeCycleHookTest from './components/LifeCycleHookTest.vue';
 import PropsTest from'./components/PropsTest.vue';
+import DynamicLayout from './components/DynamicLayout.vue';
 
 export default {
   components: {
     SecondChild,
     LifeCycleHookTest,
     PropsTest,
+    DynamicLayout,
 
   },  
   data() {
@@ -15,6 +17,7 @@ export default {
       visible: true,
       name : 'sadasd',
       age : 33,
+      dynamicName: 'header',
     };
   },
   methods : {
@@ -60,6 +63,11 @@ export default {
   <PropsTest :name="'aag'" :age="3" :isHuman="true"/> <!--v-bind 전달-->
   <p>name: {{ name }} age {{ age }}</p>
   <button @click="ageChange">ifClick data chage</button>
+  <DynamicLayout>
+    <template #[dynamicName]>
+      <h2>동적 슬롯</h2>
+    </template>
+  </DynamicLayout>
 </template>
 <style scoped>
 h1,
