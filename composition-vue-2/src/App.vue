@@ -1,47 +1,46 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref, reactive, computed, provide } from 'vue';
+
+import WatchDeepRef from './components/WatchDeepRef.vue';
+import WatchReactive from './components/WatchReactive.vue';
+import WatchReactiveCallback from './components/WatchReactiveCallback.vue';
+import WatchEffect from './components/WatchEffect.vue';
+import DefineEmits from './components/DefineEmits.vue';
+import Inject from './components/Inject.vue';
+
+// defineEmits
+const count = ref(0);
+const state = reactive({
+  count: 0,
+});
+const countIncrement = (num1, num2, num3) => {
+  console.log(num1, num2, num3);
+  count.value = num1 + num2 + num3;
+};
+const stateCountInrement = (direct, arr) => {
+  console.log(direct);
+  console.log(arr);
+  state.count = direct + arr[0];
+};
+
+// inject
+const fruits = reactive(['apples', 'bananas', 'oranges']);
+const fruitsTxt = computed(() => `I like ${fruits[0]}`);
+provide('fruitsArr', fruits);
+provide('fruitsText', fruitsTxt);
+provide('userObj', { name: 'sucoding', age: 20 });
+
 </script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <!-- <WatchDeepRef />
+  <WatchReactive />
+  <WatchReactiveCallback /> -->
+  <!-- <WatchEffect></WatchEffect> -->
+  <h1>{{ count }}</h1>
+  <h1>{{ state.count }}</h1>
+  <DefineEmits
+    @count-increment="countIncrement"
+    @state-count-increment="(arr) => stateCountInrement(50, arr)"
+  />
+  <Inject/>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
